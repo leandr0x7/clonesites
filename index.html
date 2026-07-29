@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MySiteCloner — Extensão que captura e exporta sites em ZIP</title>
+  <meta name="description" content="Extensão Chrome MV3 que captura HTML, CSS, Tailwind e assets de qualquer página e exporta um clone pronto em ZIP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <div class="header__inner">
+      <a href="#top" class="logo magnetic" data-cursor="logo">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 3L28 11.5V20.5L16 29L4 20.5V11.5L16 3Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16 10L22 14V18L16 22L10 18V14L16 10Z" fill="currentColor" opacity="0.85"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          <span class="logo__eyebrow">NEURAL EXPORT — v1.1</span>
+          <span class="logo__name">MySiteCloner</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#recursos" class="nav__link link">Recursos</a>
+        <a href="#como-funciona" class="nav__link link">Como Funciona</a>
+        <a href="#precos" class="nav__link link">Preços</a>
+        <a href="#depoimentos" class="nav__link link">Depoimentos</a>
+      </nav>
+
+      <a href="#precos" class="btn btn--glow btn--sm magnetic" data-cursor="cta">
+        <span class="btn__label">Comprar por R$ 9,97</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="badge reveal" data-reveal>
+            <span class="badge__pulse"></span>
+            Extensão Chrome MV3 · captura e exporta clones em ZIP
+          </div>
+
+          <h1 class="hero__title split-title" data-split>
+            Clone qualquer página. Selecione os módulos. Exporte o ZIP em um clique.
+          </h1>
+
+          <p class="hero__sub reveal" data-reveal data-delay="120">
+            MySiteCloner captura o DOM, CSS, classes Tailwind, estilos inline e metadados
+            da página aberta — e empacota tudo em um projeto local pronto para estudar, remixar ou prototipar.
+          </p>
+
+          <div class="hero__ctas reveal" data-reveal data-delay="200">
+            <a href="#precos" class="btn btn--primary magnetic" data-cursor="cta">
+              <span class="btn__label">Acesso Vitalício — R$ 9,97</span>
+              <span class="btn__icon" aria-hidden="true">→</span>
+            </a>
+            <button type="button" class="btn btn--glass magnetic" id="demoBtn" data-cursor="play">
+              <span class="btn__icon btn__icon--pulse" aria-hidden="true"></span>
+              <span class="btn__label">Ver Captura ao Vivo</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="demo reveal" data-reveal data-delay="180" data-cursor="view">
+          <div class="demo__brackets" aria-hidden="true"></div>
+          <div class="demo__header">
+            <div class="demo__brand">
+              <span class="demo__icon">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 11.5V20.5L16 29L4 20.5V11.5L16 3Z" stroke="currentColor" stroke-width="1.5"/><path d="M16 10L22 14V18L16 22L10 18V14L16 10Z" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <span class="demo__eyebrow">NEURAL EXPORT — v1.1</span>
+                <strong class="demo__title">MySiteCloner</strong>
+              </div>
+            </div>
+            <span class="live-badge"><span class="live-badge__dot"></span> LIVE</span>
+          </div>
+
+          <p class="demo__hint">Selecione os módulos e exporte o clone em ZIP.</p>
+
+          <div class="demo__panel">
+            <div class="demo__panel-head">
+              <span>MÓDULOS DE CAPTURA</span>
+              <button type="button" class="pill pill--btn" id="toggleAllBtn">TUDO OFF</button>
+            </div>
+
+            <ul class="module-list" id="moduleList">
+              <li class="module-item">
+                <div>
+                  <strong>HTML estruturado</strong>
+                  <span>DOM serializado — index.html</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="html" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>CSS capturado</strong>
+                  <span>Folhas linkadas + estilos inline</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="css" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>Tailwind classes</strong>
+                  <span>Utilitários detectados no DOM</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="tailwind" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>Meta + README</strong>
+                  <span>URL, título e manifesto da captura</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="meta" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>Assets referenciados</strong>
+                  <span>Imagens e fontes acessíveis</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="assets" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+            </ul>
+
+            <div class="waveform" id="waveform" aria-hidden="true">
+              <canvas id="waveCanvas" width="640" height="80"></canvas>
+            </div>
+
+            <div class="transcript" id="transcript">
+              <span class="transcript__label">LOG DE CAPTURA</span>
+              <p class="transcript__text" id="transcriptText">Sistema pronto · configure os módulos</p>
+            </div>
+
+            <pre class="json-out" id="jsonOut"><code>{
+  "url": "https://exemplo.com",
+  "mode": "page",
+  "modules": ["html","css","tailwind","meta","assets"]
+}</code></pre>
+
+            <button type="button" class="btn btn--capture magnetic" id="captureBtn">
+              <span class="btn__label">CAPTURAR E EXPORTAR ZIP</span>
+            </button>
+
+            <div class="status-pill" id="statusPill">Sistema pronto · configure os módulos</div>
+          </div>
+
+          <div class="demo__footer">
+            <span>MV3 · DECRYPTED</span>
+            <span id="activeCount">5/5 ativos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="Métricas">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>+25.000 páginas capturadas</span>
+          <span class="marquee__sep">✦</span>
+          <span>HTML · CSS · Tailwind · ZIP</span>
+          <span class="marquee__sep">✦</span>
+          <span>Chrome Manifest V3</span>
+          <span class="marquee__sep">✦</span>
+          <span>+25.000 páginas capturadas</span>
+          <span class="marquee__sep">✦</span>
+          <span>HTML · CSS · Tailwind · ZIP</span>
+          <span class="marquee__sep">✦</span>
+          <span>Chrome Manifest V3</span>
+          <span class="marquee__sep">✦</span>
+        </div>
+      </div>
+      <div class="container proof__metrics">
+        <div class="metric reveal" data-reveal>
+          <span class="metric__icon">⚡</span>
+          <div>
+            <strong>+25.000</strong>
+            <span>Páginas capturadas</span>
+          </div>
+        </div>
+        <div class="metric reveal" data-reveal data-delay="80">
+          <span class="metric__icon">⚡</span>
+          <div>
+            <strong>&lt; 3s</strong>
+            <span>Export médio em ZIP</span>
+          </div>
+        </div>
+        <div class="metric reveal" data-reveal data-delay="160">
+          <span class="metric__icon">⚡</span>
+          <div>
+            <strong>MV3</strong>
+            <span>Extensão Chrome nativa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare section" id="problema">
+      <div class="container">
+        <div class="section__head reveal" data-reveal>
+          <span class="eyebrow">IMPACTO</span>
+          <h2 class="section__title">O problema vs. a solução</h2>
+        </div>
+
+        <div class="compare__grid">
+          <article class="compare__col compare__col--old glass-card reveal" data-reveal>
+            <header>
+              <span class="compare__badge compare__badge--bad">✕ Como você faz hoje</span>
+              <h3>Old Way</h3>
+            </header>
+            <ul>
+              <li>Salva a página pelo navegador e recebe HTML quebrado, sem CSS útil.</li>
+              <li>Abre DevTools, copia trechos na mão e perde horas montando o layout.</li>
+              <li>Printa a tela ou grava vídeo — zero código para remixar depois.</li>
+            </ul>
+          </article>
+
+          <article class="compare__col compare__col--new glass-card reveal" data-reveal data-delay="120">
+            <header>
+              <span class="compare__badge compare__badge--good">✓ Com MySiteCloner</span>
+              <h3>Clone Way</h3>
+            </header>
+            <ul>
+              <li>Abre a extensão, marca os módulos e baixa o ZIP estruturado.</li>
+              <li>HTML serializado + CSS capturado + classes Tailwind detectadas.</li>
+              <li>README e meta.json prontos para documentar a origem da captura.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section" id="recursos">
+      <div class="container">
+        <div class="section__head reveal" data-reveal>
+          <span class="eyebrow">MÓDULOS DE CAPTURA</span>
+          <h2 class="section__title">O que a extensão captura</h2>
+          <p class="section__sub">Ative só o que precisa. Cada módulo vira arquivo no ZIP final.</p>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-cursor="card">
+            <div class="feature-card__icon">📄</div>
+            <h3>HTML estruturado</h3>
+            <p>DOM serializado limpo em index.html — estrutura da página pronta para abrir offline.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="80" data-cursor="card">
+            <div class="feature-card__icon">🎨</div>
+            <h3>CSS completo</h3>
+            <p>Folhas linkadas, estilos inline e CSS capturado — bordas, animações e layout preservados.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="160" data-cursor="card">
+            <div class="feature-card__icon">⚡</div>
+            <h3>Tailwind detectado</h3>
+            <p>Extrai utilitários usados no DOM e gera um inventário em tailwind-classes.txt.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="240" data-cursor="card">
+            <div class="feature-card__icon">📦</div>
+            <h3>Export ZIP + Meta</h3>
+            <p>Empacota tudo com meta.json e README — URL, título, data e módulos ativos da captura.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps section" id="como-funciona">
+      <div class="container">
+        <div class="section__head reveal" data-reveal>
+          <span class="eyebrow">PIPELINE</span>
+          <h2 class="section__title">Como funciona em 3 passos</h2>
+        </div>
+
+        <ol class="steps__list">
+          <li class="step glass-card reveal" data-reveal>
+            <span class="step__num">01</span>
+            <h3>Abra a página</h3>
+            <p>Navegue até o site que quer estudar ou prototipar e abra a extensão.</p>
+          </li>
+          <li class="step glass-card reveal" data-reveal data-delay="100">
+            <span class="step__num">02</span>
+            <h3>Selecione os módulos</h3>
+            <p>Ative HTML, CSS, Tailwind, Meta e Assets conforme o que precisa no clone.</p>
+          </li>
+          <li class="step glass-card reveal" data-reveal data-delay="200">
+            <span class="step__num">03</span>
+            <h3>Exporte o ZIP</h3>
+            <p>Um clique e o pacote baixa — pronto para abrir no editor e remixar.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="depoimentos">
+      <div class="container">
+        <div class="section__head reveal" data-reveal>
+          <span class="eyebrow">SINAL SOCIAL</span>
+          <h2 class="section__title">O que os builders dizem</h2>
+        </div>
+
+        <div class="testimonials__grid">
+          <blockquote class="quote glass-card reveal" data-reveal data-cursor="card">
+            <p>“Capturo landings de referência em segundos. O ZIP já vem com CSS e classes Tailwind organizados.”</p>
+            <footer>
+              <strong>Marina Costa</strong>
+              <span>Front-end · SP</span>
+            </footer>
+          </blockquote>
+          <blockquote class="quote glass-card reveal" data-reveal data-delay="100" data-cursor="card">
+            <p>“Substituiu o ‘salvar como’ do Chrome. Finalmente o HTML abre offline sem quebrar o layout.”</p>
+            <footer>
+              <strong>Diego Alves</strong>
+              <span>Full-stack · Curitiba</span>
+            </footer>
+          </blockquote>
+          <blockquote class="quote glass-card reveal" data-reveal data-delay="200" data-cursor="card">
+            <p>“Uso no dia a dia pra estudar animações e efeitos. O meta.json documenta a origem sozinho.”</p>
+            <footer>
+              <strong>Rafael Nunes</strong>
+              <span>Indie Hacker · Remote</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing section" id="precos">
+      <div class="container">
+        <div class="section__head reveal" data-reveal>
+          <span class="eyebrow">ACESSO VITALÍCIO</span>
+          <h2 class="section__title">Um plano. Pague uma vez.</h2>
+          <p class="section__sub">Sem assinatura. Sem renovação. Acesso permanente por R$ 9,97.</p>
+        </div>
+
+        <div class="pricing__grid pricing__grid--single">
+          <article class="price-card price-card--featured glass-card reveal" data-reveal data-cursor="cta">
+            <span class="price-card__ribbon">VITALÍCIO</span>
+            <header>
+              <h3>MySiteCloner Lifetime</h3>
+              <p class="price"><span>R$ 9,97</span><small>pagamento único</small></p>
+              <p class="price-card__desc">Todos os módulos. Capturas ilimitadas. Para sempre.</p>
+            </header>
+            <ul>
+              <li>Capturas ilimitadas</li>
+              <li>HTML · CSS · Tailwind · Meta · Assets</li>
+              <li>Export ZIP completo</li>
+              <li>Atualizações futuras inclusas</li>
+              <li>Sem mensalidade</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--primary magnetic">Garantir acesso vitalício</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head reveal" data-reveal>
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section__title">Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq__item glass-card reveal" data-reveal open>
+            <summary>Funciona em qualquer site?</summary>
+            <p>Sim na maioria das páginas públicas. Sites com CSS cross-origin, scripts protegidos ou conteúdo atrás de login podem ter módulos parciais — o README da captura avisa o que falhou.</p>
+          </details>
+          <details class="faq__item glass-card reveal" data-reveal data-delay="60">
+            <summary>Os dados da página saem do meu computador?</summary>
+            <p>A captura roda localmente na extensão MV3. O ZIP é gerado no seu Chrome — sem enviar o DOM para servidores externos.</p>
+          </details>
+          <details class="faq__item glass-card reveal" data-reveal data-delay="120">
+            <summary>É assinatura mensal?</summary>
+            <p>Não. É pagamento único de R$ 9,97 com acesso vitalício — sem renovação e sem mensalidade.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section" id="cta-final">
+      <div class="container">
+        <div class="final-cta__panel glass-card reveal" data-reveal>
+          <div class="final-cta__brackets" aria-hidden="true"></div>
+          <h2 class="final-cta__title split-title" data-split>
+            Pare de copiar na mão. Capture. Exporte. Remixe.
+          </h2>
+          <p class="reveal" data-reveal data-delay="100">Acesso vitalício por R$ 9,97. Um pagamento. Sem assinatura.</p>
+          <a href="#precos" class="btn btn--primary btn--lg magnetic" data-cursor="cta">
+            <span class="btn__label">Garantir por R$ 9,97</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__name">MySiteCloner</span>
+        <span class="footer__meta">MV3 · DECRYPTED · 2026</span>
+      </div>
+      <nav class="footer__links">
+        <a href="#" class="link">Termos de Uso</a>
+        <a href="#" class="link">Privacidade</a>
+        <a href="#" class="link">Suporte</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+:root { --pl-black: #000; --pl-white: #fff; --pl-panel-gray: #c8c8c8; --pl-line-gray: #434343; --pl-corner-plus-offset: calc(-6px - 6.5px); --pl-mono: "Space Mono", monospace; --pl-display: "Bebas Neue", sans-serif; }
+.pl-white-overlay { background: var(--pl-panel-gray); z-index: 9050; pointer-events: none; opacity: 1; position: fixed; inset: 0px; }
+.pl-overlay { z-index: 9100; pointer-events: none; visibility: hidden; flex-direction: column; display: flex; position: fixed; inset: 0px; }
+.pl-overlay.active { pointer-events: all; visibility: visible; }
+.pl-belt { background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-color: ; will-change: transform; transform-origin: 50% center; background-clip: padding-box; flex: 1 1 0%; width: 100%; margin-bottom: -1px; padding-bottom: 1px; transform: scaleY(0); }
+.pl-belt:last-child { margin-bottom: 0px; }
+.pl-flying-plus { z-index: 9500; opacity: 1; pointer-events: none; will-change: left, top, opacity, transform; width: 0.813rem; height: 0.813rem; position: fixed; transform: translate(-50%, -50%); }
+.pl-flying-plus svg { display: block; }
+.pl-overlay-center { z-index: 9350; contain: layout paint; pointer-events: none; visibility: hidden; perspective: 800px; flex-direction: column; justify-content: center; align-items: center; display: flex; position: fixed; inset: 0px; }
+.pl-overlay-logo-wrap { width: clamp(10rem, 22vw, 17.5rem); height: clamp(10.25rem, 22.3vw, 17.75rem); position: relative; }
+.pl-logo-black-box { background: var(--pl-panel-gray); z-index: 0; opacity: 0; will-change: transform, opacity, left, top, width, height; border: 1.5px solid rgba(0, 0, 0, 0.06); border-radius: 2px; position: absolute; inset: 0px; }
+.pl-logo-corner-plus { z-index: 10; will-change: transform, opacity; width: 0.813rem; height: 0.813rem; position: absolute; }
+.pl-logo-corner-plus svg { width: 0.813rem; height: 0.813rem; position: static; }
+.pl-logo-corner-plus.tl { top: var(--pl-corner-plus-offset); left: var(--pl-corner-plus-offset); }
+.pl-logo-corner-plus.tr { top: var(--pl-corner-plus-offset); right: var(--pl-corner-plus-offset); }
+.pl-logo-corner-plus.bl { bottom: var(--pl-corner-plus-offset); left: var(--pl-corner-plus-offset); }
+.pl-logo-corner-plus.br { bottom: var(--pl-corner-plus-offset); right: var(--pl-corner-plus-offset); }
+.pl-border-svg { z-index: 5; pointer-events: none; opacity: 0; width: 100%; height: 100%; position: absolute; inset: 0px; overflow: visible; }
+.pl-t-path { opacity: 0; z-index: 500; will-change: transform, opacity; width: 100%; height: 100%; position: absolute; inset: 0px; }
+.pl-overlay-page-label { text-transform: uppercase; color: var(--pl-black); opacity: 0; white-space: nowrap; z-index: 600; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.pl-overlay-counter { opacity: 0; z-index: 9400; justify-content: center; align-items: center; gap: 1px; display: flex; position: fixed; bottom: 5rem; left: 50%; transform: translate(-50%); }
+.pl-slot-reel { width: 0.75rem; height: 0.938rem; display: block; position: relative; overflow: hidden; }
+.pl-slot-strip { will-change: transform; display: block; }
+.pl-slot-digit { height: 1rem; color: var(--pl-line-gray); letter-spacing: 0px; text-align: center; font-size: 1rem; line-height: 1rem; display: block; }
+.pl-overlay-tagline { opacity: 1; align-items: center; gap: 0.063rem; margin-top: 2.5rem; display: flex; }
+.pl-tag-word { text-transform: uppercase; color: rgb(17, 17, 17); opacity: 0; transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(6px); }
+.pl-tag-word.visible { opacity: 1; transform: translateY(0px); }
+.pl-tag-dot { color: rgba(0, 0, 0, 0.3); opacity: 0; margin: 0px 0.5rem; font-size: 1.125rem; transition: opacity 0.4s 0.15s; }
+.pl-tag-dot.visible { opacity: 1; }
+.pl-trans-overlay { z-index: 9200; pointer-events: none; visibility: hidden; flex-direction: column; display: flex; position: fixed; inset: 0px; }
+.pl-trans-overlay.active { pointer-events: all; visibility: visible; }
+.pl-trans-center { z-index: 9250; pointer-events: none; visibility: hidden; perspective: 800px; flex-direction: column; justify-content: center; align-items: center; display: flex; position: fixed; inset: 0px; }
+.pl-trans-label { text-transform: uppercase; color: rgb(17, 17, 17); opacity: 0; transform: translateY(6px); }

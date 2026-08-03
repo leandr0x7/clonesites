@@ -339,6 +339,13 @@ p { margin: 0; }
   background: linear-gradient(180deg, rgba(0, 229, 255, 0.22), rgba(0, 255, 135, 0.08));
   box-shadow: var(--glow-strong);
 }
+.btn--select {
+  width: 100%;
+  margin-top: 0.55rem;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
 
 .btn__icon--pulse {
   width: 10px;
@@ -1056,17 +1063,90 @@ p { margin: 0; }
   margin: 0 0 0.4rem;
   display: flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.price-old {
+  margin: 0 0 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.price-old s {
+  color: #ff8a8a;
+  text-decoration-thickness: 2px;
+}
+.price-strike {
+  color: #ff8a8a;
+  margin-left: 0.35rem;
+  font-size: 0.9em;
 }
 .price span {
   font-size: 2.4rem;
   font-weight: 700;
   letter-spacing: -0.04em;
-  color: var(--text);
+  color: var(--lime);
+  text-shadow: 0 0 18px rgba(0, 255, 135, 0.35);
 }
 .price small {
   color: var(--text-muted);
   font-size: 0.9rem;
+}
+
+.countdown {
+  margin: 0.25rem 0 0.35rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 140, 0, 0.35);
+  background: rgba(255, 140, 0, 0.06);
+  text-align: center;
+}
+.countdown--inline {
+  max-width: 360px;
+  margin: 0 auto 1.5rem;
+}
+.countdown__label {
+  margin: 0 0 0.65rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffc078;
+}
+.countdown__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+.countdown__unit {
+  min-width: 58px;
+  padding: 0.45rem 0.35rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(5, 7, 10, 0.65);
+}
+.countdown__unit strong {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--cyan-soft);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.countdown__unit span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.countdown__sep {
+  color: var(--orange);
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding-bottom: 0.9rem;
 }
 .price-card__desc {
   color: var(--text-muted);

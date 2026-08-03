@@ -358,10 +358,13 @@
       files: [
         modules.includes("html") && "index.html",
         modules.includes("css") && "styles/captured.css",
+        modules.includes("inline") && "styles/inline.css",
+        modules.includes("js") && "scripts/",
         modules.includes("tailwind") && "tailwind-classes.txt",
         modules.includes("meta") && "meta.json",
         modules.includes("meta") && "README.md",
         modules.includes("assets") && "assets/",
+        modules.includes("crawl") && "pages/",
       ].filter(Boolean),
       zip: `${item.title.toLowerCase().replace(/\s+/g, "-")}-clone.zip`,
       elapsed_ms: 1840 + modules.length * 120,
@@ -381,6 +384,10 @@
 
   captureBtn?.addEventListener("click", runDemo);
   demoBtn?.addEventListener("click", runDemo);
+  document.getElementById("selectElBtn")?.addEventListener("click", () => {
+    if (statusPill) statusPill.textContent = "Modo seleção · clique em um elemento na página";
+    if (transcriptText) transcriptText.textContent = "Aguardando seleção de elemento…";
+  });
   updateActive();
 
   /* FAQ: only one open (optional accordion feel) */
@@ -392,4 +399,48 @@
       });
     });
   });
+
+  /* ---------- 8h offer countdown ---------- */
+  const COUNTDOWN_KEY = "mysitecloner_offer_ends_at";
+  const EIGHT_HOURS_MS = 8 * 60 * 60 * 1000;
+
+  function getOfferEnd() {
+    const stored = localStorage.getItem(COUNTDOWN_KEY);
+    let end = stored ? Number(stored) : NaN;
+    if (!Number.isFinite(end) || end <= Date.now()) {
+      end = Date.now() + EIGHT_HOURS_MS;
+      localStorage.setItem(COUNTDOWN_KEY, String(end));
+    }
+    return end;
+  }
+
+  function pad(n) {
+    return String(Math.max(0, n)).padStart(2, "0");
+  }
+
+  function tickCountdowns() {
+    const end = getOfferEnd();
+    let remaining = end - Date.now();
+    if (remaining <= 0) {
+      remaining = EIGHT_HOURS_MS;
+      localStorage.setItem(COUNTDOWN_KEY, String(Date.now() + remaining));
+    }
+
+    const totalSec = Math.floor(remaining / 1000);
+    const hours = Math.floor(totalSec / 3600);
+    const minutes = Math.floor((totalSec % 3600) / 60);
+    const seconds = totalSec % 60;
+
+    document.querySelectorAll("[data-countdown]").forEach((box) => {
+      const h = box.querySelector("[data-hours]");
+      const m = box.querySelector("[data-minutes]");
+      const s = box.querySelector("[data-seconds]");
+      if (h) h.textContent = pad(hours);
+      if (m) m.textContent = pad(minutes);
+      if (s) s.textContent = pad(seconds);
+    });
+  }
+
+  tickCountdowns();
+  setInterval(tickCountdowns, 1000);
 })();

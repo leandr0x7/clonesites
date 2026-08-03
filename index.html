@@ -38,8 +38,8 @@
         <a href="#depoimentos" class="nav__link link">Depoimentos</a>
       </nav>
 
-      <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--glow btn--sm magnetic" data-cursor="cta" target="_blank" rel="noopener noreferrer">
-        <span class="btn__label">Comprar por R$ 9,97</span>
+      <a href="#precos" class="btn btn--glow btn--sm magnetic" data-cursor="cta">
+        <span class="btn__label">Adquirir</span>
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -74,8 +74,8 @@
           </p>
 
           <div class="hero__ctas reveal" data-reveal data-delay="200">
-            <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--primary magnetic" data-cursor="cta" target="_blank" rel="noopener noreferrer">
-              <span class="btn__label">Acesso Vitalício — R$ 9,97</span>
+            <a href="#precos" class="btn btn--primary magnetic" data-cursor="cta">
+              <span class="btn__label">Adquirir</span>
               <span class="btn__icon" aria-hidden="true">→</span>
             </a>
             <button type="button" class="btn btn--glass magnetic" id="demoBtn" data-cursor="play">
@@ -112,7 +112,7 @@
               <li class="module-item">
                 <div>
                   <strong>HTML estruturado</strong>
-                  <span>DOM serializado — index.html</span>
+                  <span>DOM serializado · index.html</span>
                 </div>
                 <label class="toggle">
                   <input type="checkbox" checked data-module="html" />
@@ -121,8 +121,8 @@
               </li>
               <li class="module-item">
                 <div>
-                  <strong>CSS capturado</strong>
-                  <span>Folhas linkadas + estilos inline</span>
+                  <strong>Folhas de estilo CSS</strong>
+                  <span>&lt;style&gt; + CSS linkado</span>
                 </div>
                 <label class="toggle">
                   <input type="checkbox" checked data-module="css" />
@@ -131,8 +131,38 @@
               </li>
               <li class="module-item">
                 <div>
-                  <strong>Tailwind classes</strong>
-                  <span>Utilitários detectados no DOM</span>
+                  <strong>Estilos inline</strong>
+                  <span>Atributos style="" do DOM</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="inline" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>Scripts JS</strong>
+                  <span>Externos + inline da página</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="js" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>Assets / Network</strong>
+                  <span>Imagens, fontes, mídia, .buf/.wasm</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked data-module="assets" />
+                  <span class="toggle__track"><span class="toggle__thumb"></span></span>
+                </label>
+              </li>
+              <li class="module-item">
+                <div>
+                  <strong>Classes Tailwind</strong>
+                  <span>Utilities detectadas no DOM</span>
                 </div>
                 <label class="toggle">
                   <input type="checkbox" checked data-module="tailwind" />
@@ -142,7 +172,7 @@
               <li class="module-item">
                 <div>
                   <strong>Meta + README</strong>
-                  <span>URL, título e manifesto da captura</span>
+                  <span>meta.json e documentação</span>
                 </div>
                 <label class="toggle">
                   <input type="checkbox" checked data-module="meta" />
@@ -151,11 +181,11 @@
               </li>
               <li class="module-item">
                 <div>
-                  <strong>Assets referenciados</strong>
-                  <span>Imagens e fontes acessíveis</span>
+                  <strong>Site completo (crawl)</strong>
+                  <span>Várias páginas do mesmo domínio</span>
                 </div>
                 <label class="toggle">
-                  <input type="checkbox" checked data-module="assets" />
+                  <input type="checkbox" data-module="crawl" />
                   <span class="toggle__track"><span class="toggle__thumb"></span></span>
                 </label>
               </li>
@@ -173,11 +203,14 @@
             <pre class="json-out" id="jsonOut"><code>{
   "url": "https://exemplo.com",
   "mode": "page",
-  "modules": ["html","css","tailwind","meta","assets"]
+  "modules": ["html","css","inline","js","assets","tailwind","meta"]
 }</code></pre>
 
             <button type="button" class="btn btn--capture magnetic" id="captureBtn">
-              <span class="btn__label">CAPTURAR E EXPORTAR ZIP</span>
+              <span class="btn__label">CAPTURAR PÁGINA (ZIP)</span>
+            </button>
+            <button type="button" class="btn btn--glass btn--select magnetic" id="selectElBtn">
+              <span class="btn__label">SELECIONAR ELEMENTO</span>
             </button>
 
             <div class="status-pill" id="statusPill">Sistema pronto · configure os módulos</div>
@@ -185,7 +218,7 @@
 
           <div class="demo__footer">
             <span>MV3 · DECRYPTED</span>
-            <span id="activeCount">5/5 ativos</span>
+            <span id="activeCount">7/8 ativos</span>
           </div>
         </div>
       </div>
@@ -456,7 +489,7 @@
         <div class="section__head reveal" data-reveal>
           <span class="eyebrow">ACESSO VITALÍCIO</span>
           <h2 class="section__title">Um plano. Pague uma vez.</h2>
-          <p class="section__sub">Sem assinatura. Sem renovação. Acesso permanente por R$ 9,97.</p>
+          <p class="section__sub">Sem assinatura. Sem renovação. Oferta por tempo limitado — de R$ 67,90 por R$ 27,90 vitalício.</p>
         </div>
 
         <div class="pricing__grid pricing__grid--single">
@@ -464,9 +497,31 @@
             <span class="price-card__ribbon">VITALÍCIO</span>
             <header>
               <h3>MySiteCloner Lifetime</h3>
-              <p class="price"><span>R$ 9,97</span><small>pagamento único</small></p>
+              <p class="price-old">De <s>R$ 67,90</s></p>
+              <p class="price"><span>R$ 27,90</span><small>pagamento único</small></p>
               <p class="price-card__desc">Todos os módulos. Capturas ilimitadas. Para sempre.</p>
             </header>
+
+            <div class="countdown" data-countdown aria-live="polite">
+              <p class="countdown__label">Oferta encerra em</p>
+              <div class="countdown__grid">
+                <div class="countdown__unit">
+                  <strong data-hours>08</strong>
+                  <span>horas</span>
+                </div>
+                <div class="countdown__sep">:</div>
+                <div class="countdown__unit">
+                  <strong data-minutes>00</strong>
+                  <span>min</span>
+                </div>
+                <div class="countdown__sep">:</div>
+                <div class="countdown__unit">
+                  <strong data-seconds>00</strong>
+                  <span>seg</span>
+                </div>
+              </div>
+            </div>
+
             <ul>
               <li>Capturas ilimitadas</li>
               <li>HTML · CSS · Tailwind · Meta · Assets</li>
@@ -474,7 +529,7 @@
               <li>Atualizações futuras inclusas</li>
               <li>Sem mensalidade</li>
             </ul>
-            <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--primary magnetic" target="_blank" rel="noopener noreferrer">Garantir acesso vitalício</a>
+            <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--primary magnetic" target="_blank" rel="noopener noreferrer">Garantir por R$ 27,90</a>
           </article>
         </div>
       </div>
@@ -498,7 +553,7 @@
           </details>
           <details class="faq__item glass-card reveal" data-reveal data-delay="120">
             <summary>É assinatura mensal?</summary>
-            <p>Não. É pagamento único de R$ 9,97 com acesso vitalício — sem renovação e sem mensalidade.</p>
+            <p>Não. É pagamento único de R$ 27,90 com acesso vitalício — sem renovação e sem mensalidade. De R$ 67,90 por tempo limitado.</p>
           </details>
         </div>
       </div>
@@ -511,9 +566,28 @@
           <h2 class="final-cta__title split-title" data-split>
             Pare de copiar na mão. Capture. Exporte. Remixe.
           </h2>
-          <p class="reveal" data-reveal data-delay="100">Acesso vitalício por R$ 9,97. Um pagamento. Sem assinatura.</p>
+          <p class="reveal" data-reveal data-delay="100">Acesso vitalício por R$ 27,90 <s class="price-strike">R$ 67,90</s>. Um pagamento. Sem assinatura.</p>
+          <div class="countdown countdown--inline reveal" data-reveal data-delay="140" data-countdown aria-live="polite">
+            <p class="countdown__label">Oferta encerra em</p>
+            <div class="countdown__grid">
+              <div class="countdown__unit">
+                <strong data-hours>08</strong>
+                <span>horas</span>
+              </div>
+              <div class="countdown__sep">:</div>
+              <div class="countdown__unit">
+                <strong data-minutes>00</strong>
+                <span>min</span>
+              </div>
+              <div class="countdown__sep">:</div>
+              <div class="countdown__unit">
+                <strong data-seconds>00</strong>
+                <span>seg</span>
+              </div>
+            </div>
+          </div>
           <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--primary btn--lg magnetic" data-cursor="cta" target="_blank" rel="noopener noreferrer">
-            <span class="btn__label">Garantir por R$ 9,97</span>
+            <span class="btn__label">Garantir por R$ 27,90</span>
           </a>
         </div>
       </div>

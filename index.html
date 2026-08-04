@@ -22,13 +22,8 @@
 
   <header class="site-header" id="header">
     <div class="header__inner">
-      <a href="#top" class="logo magnetic" data-cursor="logo">
-        <span class="logo__mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none">
-            <path d="M16 3L28 11.5V20.5L16 29L4 20.5V11.5L16 3Z" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M16 10L22 14V18L16 22L10 18V14L16 10Z" fill="currentColor" opacity="0.85"/>
-          </svg>
-        </span>
+      <a href="#top" class="logo magnetic" data-cursor="logo" aria-label="MySiteCloner">
+        <img class="logo__img" src="assets/logo.png" alt="MySiteCloner" width="48" height="48" />
       </a>
 
       <nav class="nav" id="nav">
@@ -90,7 +85,7 @@
           <div class="demo__header">
             <div class="demo__brand">
               <span class="demo__icon">
-                <svg viewBox="0 0 32 32" fill="none"><path d="M16 3L28 11.5V20.5L16 29L4 20.5V11.5L16 3Z" stroke="currentColor" stroke-width="1.5"/><path d="M16 10L22 14V18L16 22L10 18V14L16 10Z" fill="currentColor"/></svg>
+                <img src="assets/logo.png" alt="" width="28" height="28" />
               </span>
               <div>
                 <span class="demo__eyebrow">NEURAL EXPORT — v1.1</span>
@@ -309,9 +304,22 @@
       <div class="container">
         <div class="section__head reveal" data-reveal>
           <span class="eyebrow">MÓDULOS DE CAPTURA</span>
-          <h2 class="section__title">O que a extensão captura</h2>
-          <p class="section__sub">Ative só o que precisa. Cada módulo vira arquivo no ZIP final.</p>
+          <h2 class="section__title">Tudo que a ferramenta faz</h2>
+          <p class="section__sub">8 módulos reais. Ative o que precisa — cada um entra no ZIP final, pronto pra remixar VSLs e páginas PLR.</p>
         </div>
+
+        <article class="feature-card feature-card--super glass-card magnetic-card reveal" data-reveal data-cursor="card">
+          <span class="feature-card__ribbon">SUPER OPÇÃO</span>
+          <div class="feature-card__icon">🌐</div>
+          <div class="feature-card__body">
+            <h3>Site completo (crawl)</h3>
+            <p>Capture várias páginas do mesmo domínio de uma vez. Ideal pra clonar funis, VSLs + upsell + obrigado — e adaptar o fluxo inteiro com suas infos.</p>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" checked />
+            <span class="toggle__track"><span class="toggle__thumb"></span></span>
+          </label>
+        </article>
 
         <div class="features__grid">
           <article class="feature-card glass-card magnetic-card reveal" data-reveal data-cursor="card">
@@ -324,30 +332,70 @@
             </label>
           </article>
 
-          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="80" data-cursor="card">
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="60" data-cursor="card">
             <div class="feature-card__icon">🎨</div>
-            <h3>CSS completo</h3>
-            <p>Folhas linkadas, estilos inline e CSS capturado — bordas, animações e layout preservados.</p>
+            <h3>Folhas de estilo CSS</h3>
+            <p>&lt;style&gt; + CSS linkado — layout, animações e visual preservados no clone.</p>
             <label class="toggle">
               <input type="checkbox" checked />
               <span class="toggle__track"><span class="toggle__thumb"></span></span>
             </label>
           </article>
 
-          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="160" data-cursor="card">
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="100" data-cursor="card">
+            <div class="feature-card__icon">✨</div>
+            <h3>Estilos inline</h3>
+            <p>Captura atributos style="" do DOM para não perder detalhes visuais escondidos no HTML.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="140" data-cursor="card">
+            <div class="feature-card__icon">⚙️</div>
+            <h3>Scripts JS</h3>
+            <p>Externos + inline da página — animações, carrosséis e interações que fazem a oferta converter.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="180" data-cursor="card">
+            <div class="feature-card__icon">🖼</div>
+            <h3>Assets / Network</h3>
+            <p>Imagens, fontes, mídia e arquivos .buf/.wasm referenciados — o visual completo no ZIP.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="220" data-cursor="card">
             <div class="feature-card__icon">⚡</div>
-            <h3>Tailwind detectado</h3>
-            <p>Extrai utilitários usados no DOM e gera um inventário em tailwind-classes.txt.</p>
+            <h3>Classes Tailwind</h3>
+            <p>Utilities detectadas no DOM, listadas em inventário — fácil de estudar e remixar o layout.</p>
             <label class="toggle">
               <input type="checkbox" checked />
               <span class="toggle__track"><span class="toggle__thumb"></span></span>
             </label>
           </article>
 
-          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="240" data-cursor="card">
-            <div class="feature-card__icon">📦</div>
-            <h3>Export ZIP + Meta</h3>
-            <p>Empacota tudo com meta.json e README — URL, título, data e módulos ativos da captura.</p>
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="260" data-cursor="card">
+            <div class="feature-card__icon">📋</div>
+            <h3>Meta + README</h3>
+            <p>meta.json e documentação com URL, título, data e módulos ativos da captura.</p>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle__track"><span class="toggle__thumb"></span></span>
+            </label>
+          </article>
+
+          <article class="feature-card glass-card magnetic-card reveal" data-reveal data-delay="300" data-cursor="card">
+            <div class="feature-card__icon">🎯</div>
+            <h3>Selecionar elemento</h3>
+            <p>Capture só o bloco que importa — hero, VSL, depoimento ou CTA — sem baixar a página inteira.</p>
             <label class="toggle">
               <input type="checkbox" checked />
               <span class="toggle__track"><span class="toggle__thumb"></span></span>
@@ -373,7 +421,7 @@
           <li class="step glass-card reveal" data-reveal data-delay="100">
             <span class="step__num">02</span>
             <h3>Selecione os módulos</h3>
-            <p>Ative HTML, CSS, Tailwind, Meta e Assets conforme o que precisa no clone.</p>
+            <p>Ative HTML, CSS, JS, Assets, Tailwind, crawl de várias páginas e o que mais precisar.</p>
           </li>
           <li class="step glass-card reveal" data-reveal data-delay="200">
             <span class="step__num">03</span>
@@ -523,13 +571,18 @@
             </div>
 
             <ul>
-              <li>Capturas ilimitadas</li>
-              <li>HTML · CSS · Tailwind · Meta · Assets</li>
+              <li>Capturas ilimitadas · pagamento único</li>
+              <li>HTML estruturado + CSS + estilos inline</li>
+              <li>Scripts JS (externos + inline)</li>
+              <li>Assets / Network (imagens, fontes, mídia)</li>
+              <li>Classes Tailwind detectadas</li>
+              <li>Meta.json + README da captura</li>
+              <li>Site completo (crawl) — várias páginas</li>
+              <li>Selecionar elemento pontual</li>
               <li>Export ZIP completo</li>
               <li>Atualizações futuras inclusas</li>
-              <li>Sem mensalidade</li>
             </ul>
-            <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--primary magnetic" target="_blank" rel="noopener noreferrer">Garantir por R$ 27,90</a>
+            <a href="https://pay.cakto.com.br/kegfpsr_1020937" class="btn btn--primary magnetic" target="_blank" rel="noopener noreferrer">Garantir por R$ 27,90</a>
           </article>
         </div>
       </div>
@@ -586,7 +639,7 @@
               </div>
             </div>
           </div>
-          <a href="https://pay.cakto.com.br/3enatvs_1011322" class="btn btn--primary btn--lg magnetic" data-cursor="cta" target="_blank" rel="noopener noreferrer">
+          <a href="https://pay.cakto.com.br/kegfpsr_1020937" class="btn btn--primary btn--lg magnetic" data-cursor="cta" target="_blank" rel="noopener noreferrer">
             <span class="btn__label">Garantir por R$ 27,90</span>
           </a>
         </div>
@@ -597,8 +650,11 @@
   <footer class="site-footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="logo__name">MySiteCloner</span>
-        <span class="footer__meta">MV3 · DECRYPTED · 2026</span>
+        <img class="footer__logo" src="assets/logo.png" alt="MySiteCloner" width="36" height="36" />
+        <div>
+          <span class="logo__name">MySiteCloner</span>
+          <span class="footer__meta">MV3 · DECRYPTED · 2026</span>
+        </div>
       </div>
       <nav class="footer__links">
         <a href="#" class="link">Termos de Uso</a>

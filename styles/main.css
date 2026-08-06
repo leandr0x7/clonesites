@@ -1299,8 +1299,8 @@ h3 {
   place-items: center;
   font-size: 12px;
   font-weight: 700;
-  color: var(--white);
-  background: linear-gradient(145deg, var(--blue), var(--purple));
+  color: #ffffff !important;
+  background: linear-gradient(145deg, #6b7280, #4b5563);
 }
 
 .testimonial__author strong {
@@ -1308,7 +1308,7 @@ h3 {
   font-size: 14px;
 }
 
-.testimonial__author span {
+.testimonial__author > div span {
   font-size: 12.5px;
   color: var(--muted);
 }
@@ -1520,6 +1520,13 @@ h3 {
 
   .about--founder .about__photo {
     max-width: 180px;
+    width: 180px;
+    margin-inline: auto;
+    justify-self: center;
+  }
+
+  .about--founder .about__copy {
+    text-align: center;
   }
 
   .about--founder .about__copy .btn {

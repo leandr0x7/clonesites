@@ -1,0 +1,33 @@
+{
+  "url": "https://vibeclone.vercel.app/?utm_source=Instagram_Feed&utm_campaign=%5BVIBECLONER%5D%20%5BVENDAS%5D%20%5BINTERESSES%20SITES%2FLPS%5D%20%5BLP%5D%2005.08.2026&utm_medium=%5BWEBDESIGNER%2FDEVERLOPS%2FMARKETING%2FIA%5D%20%5BBRAZIL%5D&utm_content=AD04%20%7C%20Alethia&utm_term=52566039829936&utm_id=52566027445536&fbclid=PAb21jcATg2JpwZG9mAmV4dG4DYWVtATAAYWRpZAAAL878NLX4c3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnYafuWQKay4aAg7cokQsQG328-npM9SNudGAFggNuGQpd_oHRo4tc71Hd0Iw_aem_za1FyOA8VAOJZ5i-5l1uNA",
+  "title": "VibeCloner — Clone qualquer página e receba o código pronto pra editar",
+  "capturedAt": "2026-08-06T13:14:48.335Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+  "charset": "UTF-8",
+  "captureMode": "page",
+  "scriptCount": 1,
+  "inlineScriptCount": 1,
+  "assetCount": 8,
+  "assetFailedCount": 1,
+  "tip": "Para sites WebGL/3D, role a página e espere as animações carregarem antes de capturar.",
+  "options": {
+    "html": true,
+    "css": true,
+    "inline": true,
+    "scripts": true,
+    "assets": true,
+    "tailwind": true,
+    "meta": true,
+    "crawl": false,
+    "maxPages": 15
+  },
+  "styleTagCount": 1,
+  "linkedStylesheetCount": 1,
+  "inlineStyleCount": 33,
+  "tailwindClassCount": 5,
+  "scriptSavedCount": 1,
+  "assetSavedCount": 8,
+  "rewrittenUrls": 9,
+  "pageCount": 1,
+  "pages": []
+}

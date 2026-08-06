@@ -1,0 +1,33 @@
+{
+  "url": "https://academyskills.design/f2f?utm_campaign=wsf2f7&utm_source=Whatsapp&utm_medium=ORG&utm_term=Whatsapp_organico&utm_content=disparo",
+  "title": "Workshop do Figma ao Framer | 7ª Edição",
+  "capturedAt": "2026-08-06T13:41:06.982Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+  "charset": "UTF-8",
+  "captureMode": "page",
+  "scriptCount": 0,
+  "inlineScriptCount": 21,
+  "assetCount": 40,
+  "assetFailedCount": 60,
+  "tip": "Para sites WebGL/3D, role a página e espere as animações carregarem antes de capturar.",
+  "options": {
+    "html": true,
+    "css": true,
+    "inline": true,
+    "scripts": true,
+    "assets": true,
+    "tailwind": true,
+    "meta": true,
+    "crawl": false,
+    "maxPages": 15
+  },
+  "styleTagCount": 8,
+  "linkedStylesheetCount": 0,
+  "inlineStyleCount": 1005,
+  "tailwindClassCount": 2,
+  "scriptSavedCount": 0,
+  "assetSavedCount": 40,
+  "rewrittenUrls": 40,
+  "pageCount": 1,
+  "pages": []
+}

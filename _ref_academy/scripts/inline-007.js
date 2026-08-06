@@ -1,0 +1,1 @@
+[{"hash":"g8dkmx","mediaQuery":"(min-width: 1200px)"},{"hash":"1cwvx3m","mediaQuery":"(min-width: 810px) and (max-width: 1199.98px)"},{"hash":"1vm1li2","mediaQuery":"(max-width: 809.98px)"}]

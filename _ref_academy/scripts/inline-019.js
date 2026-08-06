@@ -1,0 +1,1 @@
+(function(){var b=new URLSearchParams(window.location.search);if(b.toString()){var c=document.querySelectorAll("a");c.forEach(function(a){a.href.indexOf("criatica.typeform.com")!==-1&&(a.href.indexOf("?")===-1?a.href+="?"+b.toString():a.href+="\x26"+b.toString())})}})();

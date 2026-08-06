@@ -1,0 +1,1 @@
+(function(){var b=new URLSearchParams(window.location.search);if(b.toString()){var c=document.querySelectorAll("a");c.forEach(function(a){-1!==a.href.indexOf("pay.hotmart.com")&&(-1===a.href.indexOf("?")?a.href+="?"+b.toString():a.href+="\x26"+b.toString())})}})();

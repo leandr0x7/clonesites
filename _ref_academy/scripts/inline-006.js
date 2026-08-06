@@ -1,0 +1,1 @@
+{"1gucwym":{"default":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"x":0,"y":0},"animate":{"opacity":1,"rotate":0,"rotateX":0,"rotateY":0,"scale":1,"skewX":0,"skewY":0,"transition":{"bounce":0,"delay":0,"duration":0.5,"type":"spring"},"x":0,"y":0}}}}

@@ -1,0 +1,1 @@
+(function(a,c,e,h,d,b){a.lt||(a.lt=a.lt||{_c:[]},d=c.getElementsByTagName("head")[0],b=c.createElement("script"),b.async=1,b.src=e,d.appendChild(b));a.ltq=a.ltq||function(f,g){a.lt._c.push([f,g])};ltq("init","2G5-7")})(window,document,"//tag.ltrck.com.br/lt10297.js");
